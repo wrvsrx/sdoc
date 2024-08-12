@@ -17,7 +17,10 @@
           { pkgs, ... }:
           rec {
             packages.default = pkgs.callPackage ./default.nix { };
-            devShells.default = pkgs.mkShell { inputsFrom = [ packages.default ]; };
+            devShells.default = pkgs.mkShell {
+              inputsFrom = [ packages.default ];
+              nativeBuildInputs = with pkgs; [ rust-analyzer ];
+            };
             formatter = pkgs.nixfmt-rfc-style;
           };
       }

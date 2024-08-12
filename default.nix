@@ -1,8 +1,15 @@
-{ stdenvNoCC }:
+{
+  stdenvNoCC,
+  cargo,
+  rustc,
+}:
 stdenvNoCC.mkDerivation {
   name = "";
   src = ./.;
-  nativeBuildInputs = [ ];
+  nativeBuildInputs = [
+    cargo
+    rustc
+  ];
   installPhase = ''
     mkdir -p $out
   '';

@@ -1,1 +1,4 @@
 /.direnv
+
+# cargo build result
+/target
