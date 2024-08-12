@@ -1,16 +1,21 @@
 {
+  rustPlatform,
+  tree-sitter,
+  nodejs,
   stdenvNoCC,
-  cargo,
-  rustc,
 }:
-stdenvNoCC.mkDerivation {
-  name = "";
+rustPlatform.buildRustPackage {
+  pname = "sdoc";
+  version = "dev";
   src = ./.;
   nativeBuildInputs = [
-    cargo
-    rustc
+    nodejs
+    tree-sitter
   ];
-  installPhase = ''
-    mkdir -p $out
+  postPatch = ''
+    env --chdir=crates/tree-sitter-sdoc tree-sitter generate
   '';
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+  };
 }

@@ -2,3 +2,6 @@
 
 # cargo build result
 /target
+
+# nix build result
+/result

@@ -1,6 +1,7 @@
-[package]
-name = "sdoc-language-server"
-version = "0.1.0"
-edition = "2021"
+[workspace]
 
-[dependencies]
+members = [
+  "crates/sdoc-language-server",
+  "crates/tree-sitter-sdoc",
+  "crates/sdoc-to-pandoc",
+]
